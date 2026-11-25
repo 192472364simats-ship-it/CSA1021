@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exp17-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: exp17-flask
+  template:
+    metadata:
+      labels:
+        app: exp17-flask
+    spec:
+      containers:
+        - name: exp17-container
+          image: dharani431/exp17-flask:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000

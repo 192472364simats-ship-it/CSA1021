@@ -1,0 +1,2 @@
+Flaskdocker rm exp17-container
+kubectl apply -f deployment.yamlkubectl port-forward service/exp17-service 5001:5000
