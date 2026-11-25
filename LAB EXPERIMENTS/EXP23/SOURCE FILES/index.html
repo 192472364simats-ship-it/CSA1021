@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kubernetes To-Do Application</title>
+</head>
+<body>
+    <h1>My To-Do Application</h1>
+
+    <h2>Frontend Status</h2>
+    <p>Frontend is running successfully!</p>
+
+    <h2>Backend Status</h2>
+    <p id="status">Checking backend...</p>
+
+    <script>
+        fetch("/api/")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("status").innerText =
+                    data.message;
+            })
+            .catch(() => {
+                document.getElementById("status").innerText =
+                    "Backend connection failed";
+            });
+    </script>
+</body>
+</html>
